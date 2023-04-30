@@ -1,0 +1,144 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Converters="using:Firell.Toolkit.WinUI.Converters"
+    xmlns:Formatters="using:Firell.Toolkit.WinUI.Formatters"
+    xmlns:CommunityToolkitConverters="using:CommunityToolkit.WinUI.UI.Converters">
+
+    <!-- Converters -->
+    <Converters:HumanizerConverter x:Key="HumanizerConverter"/>
+
+    <Converters:SuffixConverter x:Key="SuffixConverter"/>
+    <Converters:SuffixConverter x:Key="SuffixHumanizerConverter" UseHumanizer="True" Pluralize="True"/>
+
+    <Converters:DisplayAttributeConverter x:Key="DisplayAttributeConverter"/>
+
+    <Converters:UriToBitmapImageConverter x:Key="UriToBitmapImageConverter"/>
+    <Converters:UriToMediaSourceConverter x:Key="UriToMediaSourceConverter"/>
+    <Converters:UriToHostNameConverter x:Key="UriToHostNameConverter"/>
+
+    <CommunityToolkitConverters:BoolNegationConverter x:Key="BoolNegationConverter"/>
+
+    <CommunityToolkitConverters:StringFormatConverter x:Key="StringFormatConverter"/>
+    <CommunityToolkitConverters:FormatStringConverter x:Key="FormatStringConverter"/>
+
+    <Converters:VisibilityNegationConverter x:Key="VisibilityNegationConverter"/>
+
+    <CommunityToolkitConverters:VisibilityToBoolConverter x:Key="VisibilityToBoolConverter"/>
+
+    <CommunityToolkitConverters:DoubleToVisibilityConverter x:Key="DoubleToVisibilityConverter" GreaterThan="0"/>
+    <CommunityToolkitConverters:DoubleToVisibilityConverter x:Key="NegativeDoubleToVisibilityConverter" GreaterThan="-1"/>
+
+    <CommunityToolkitConverters:StringVisibilityConverter x:Key="StringVisibilityConverter" EmptyValue="Collapsed" NotEmptyValue="Visible"/>
+    <CommunityToolkitConverters:StringVisibilityConverter x:Key="StringVisibilityConverterNegated" EmptyValue="Visible" NotEmptyValue="Collapsed"/>
+
+    <CommunityToolkitConverters:CollectionVisibilityConverter x:Key="CollectionVisibilityConverter" EmptyValue="Collapsed" NotEmptyValue="Visible"/>
+    <CommunityToolkitConverters:CollectionVisibilityConverter x:Key="CollectionVisibilityConverterNegated" EmptyValue="Visible" NotEmptyValue="Collapsed"/>
+
+    <CommunityToolkitConverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" TrueValue="Visible" FalseValue="Collapsed"/>
+    <CommunityToolkitConverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverterNegated" TrueValue="Collapsed" FalseValue="Visible"/>
+
+    <CommunityToolkitConverters:EmptyObjectToObjectConverter x:Key="EmptyObjectToVisibilityConverter" EmptyValue="Collapsed" NotEmptyValue="Visible"/>
+    <CommunityToolkitConverters:EmptyObjectToObjectConverter x:Key="EmptyObjectToVisibilityConverterNegated" EmptyValue="Visible" NotEmptyValue="Collapsed"/>
+
+    <CommunityToolkitConverters:EmptyObjectToObjectConverter x:Key="EmptyObjectToBoolConverter" EmptyValue="True" NotEmptyValue="False"/>
+    <CommunityToolkitConverters:EmptyObjectToObjectConverter x:Key="EmptyObjectToBoolConverterNegated" EmptyValue="False" NotEmptyValue="True"/>
+
+    <CommunityToolkitConverters:EmptyCollectionToObjectConverter x:Key="EmptyCollectionToBoolConverter" EmptyValue="True" NotEmptyValue="False"/>
+    <CommunityToolkitConverters:EmptyCollectionToObjectConverter x:Key="EmptyCollectionToBoolConverterNegated" EmptyValue="False" NotEmptyValue="True"/>
+
+    <CommunityToolkitConverters:BoolToObjectConverter x:Key="BoolToOpacityConverter" TrueValue="1" FalseValue="0"/>
+    <CommunityToolkitConverters:BoolToObjectConverter x:Key="BoolToOpacityConverterNegated" TrueValue="0" FalseValue="1"/>
+
+    <CommunityToolkitConverters:BoolToObjectConverter x:Key="BoolToYesNoConverter" TrueValue="Yes" FalseValue="No"/>
+    <CommunityToolkitConverters:BoolToObjectConverter x:Key="BoolToYesNoConverterNegated" TrueValue="No" FalseValue="Yes"/>
+
+    <CommunityToolkitConverters:BoolToObjectConverter x:Key="BoolToOnOffConverter" TrueValue="On" FalseValue="Off"/>
+    <CommunityToolkitConverters:BoolToObjectConverter x:Key="BoolToOnOffConverterNegated" TrueValue="Off" FalseValue="On"/>
+
+    <Converters:TimeSpanToStringConverter x:Key="TimeSpanToStringConverter"/>
+
+    <Converters:TimeSpanToDoubleConverter x:Key="TimeSpanToSecondsConverter" TimeUnit="Seconds"/>
+    <Converters:TimeSpanToDoubleConverter x:Key="TimeSpanToMinutesConverter" TimeUnit="Minutes"/>
+    <Converters:TimeSpanToDoubleConverter x:Key="TimeSpanToHoursConverter" TimeUnit="Hours"/>
+
+    <!-- Formatters -->
+    <Formatters:SuffixFormatter x:Key="MillimeterFormatter" Suffix="mm"/>
+    <Formatters:SuffixFormatter x:Key="CentimeterFormatter" Suffix="cm"/>
+    <Formatters:SuffixFormatter x:Key="MeterFormatter" Suffix="m"/>
+    <Formatters:SuffixFormatter x:Key="KilometerFormatter" Suffix="km"/>
+
+    <Formatters:SuffixFormatter x:Key="InchFormatter" Suffix="in"/>
+    <Formatters:SuffixFormatter x:Key="FootFormatter" Suffix="ft"/>
+    <Formatters:SuffixFormatter x:Key="YardFormatter" Suffix="yd"/>
+    <Formatters:SuffixFormatter x:Key="MileFormatter" Suffix="mi"/>
+
+    <Formatters:SuffixFormatter x:Key="MilliliterFormatter" Suffix="ml"/>
+    <Formatters:SuffixFormatter x:Key="CentiliterFormatter" Suffix="cl"/>
+    <Formatters:SuffixFormatter x:Key="DeciliterFormatter" Suffix="dl"/>
+    <Formatters:SuffixFormatter x:Key="LiterFormatter" Suffix="l"/>
+
+    <Formatters:SuffixFormatter x:Key="FluidOunceFormatter" Suffix="ft oz"/>
+    <Formatters:SuffixFormatter x:Key="CupFormatter" Suffix="cup"/>
+    <Formatters:SuffixFormatter x:Key="PintFormatter" Suffix="pt"/>
+    <Formatters:SuffixFormatter x:Key="GallonFormatter" Suffix="gl"/>
+
+    <Formatters:SuffixFormatter x:Key="GramFormatter" Suffix="g"/>
+    <Formatters:SuffixFormatter x:Key="KilogramFormatter" Suffix="kg"/>
+    <Formatters:SuffixFormatter x:Key="TonneFormatter" Suffix="t"/>
+
+    <Formatters:SuffixFormatter x:Key="OunceFormatter" Suffix="oz"/>
+    <Formatters:SuffixFormatter x:Key="PoundFormatter" Suffix="lb"/>
+    <Formatters:SuffixFormatter x:Key="TonFormatter" Suffix="ton"/>
+
+    <Formatters:SuffixFormatter x:Key="WattFormatter" Suffix="w"/>
+    <Formatters:SuffixFormatter x:Key="KilowattFormatter" Suffix="kw"/>
+    <Formatters:SuffixFormatter x:Key="KilowattPerHourFormatter" Suffix="kwh"/>
+
+    <Formatters:SuffixFormatter x:Key="MicrovoltFormatter" Suffix="uV"/>
+    <Formatters:SuffixFormatter x:Key="MillivoltFormatter" Suffix="mV"/>
+    <Formatters:SuffixFormatter x:Key="VoltFormatter" Suffix="V"/>
+    <Formatters:SuffixFormatter x:Key="AmpereFormatter" Suffix="A"/>
+
+    <Formatters:SuffixFormatter x:Key="MillisecondFormatter" Suffix="millisecond" UseHumanizer="True"/>
+    <Formatters:SuffixFormatter x:Key="SecondFormatter" Suffix="second" UseHumanizer="True"/>
+    <Formatters:SuffixFormatter x:Key="MinuteFormatter" Suffix="minute" UseHumanizer="True"/>
+    <Formatters:SuffixFormatter x:Key="HourFormatter" Suffix="hour" UseHumanizer="True"/>
+
+    <Formatters:SuffixFormatter x:Key="DayFormatter" Suffix="day" UseHumanizer="True"/>
+    <Formatters:SuffixFormatter x:Key="MonthFormatter" Suffix="month" UseHumanizer="True"/>
+    <Formatters:SuffixFormatter x:Key="YearFormatter" Suffix="year" UseHumanizer="True"/>
+
+    <!-- Colors, Glyphs, and Miscellaneous-->
+    <ThemeShadow x:Key="SharedThemeShadow"/>
+
+    <x:String x:Key="InformationalGlyph">&#xF13F;</x:String>
+    <x:String x:Key="InformationalBackgroundGlyph">&#xF136;</x:String>
+
+    <x:String x:Key="QuestionmarkGlyph">&#xF142;</x:String>
+    <x:String x:Key="QuestionmarkBackgroundGlyph">&#xF136;</x:String>
+
+    <x:String x:Key="SuccessGlyph">&#xF13E;</x:String>
+    <x:String x:Key="SuccessBackgroundGlyph">&#xF136;</x:String>
+
+    <x:String x:Key="WarningGlyph">&#xF13B;</x:String>
+    <x:String x:Key="WarningBackgroundGlyph">&#xF139;</x:String>
+
+    <x:String x:Key="ErrorGlyph">&#xF13D;</x:String>
+    <x:String x:Key="ErrorBackgroundGlyph">&#xF136;</x:String>
+
+    <Color x:Key="FirellColor">#FF5A19</Color>
+    <SolidColorBrush x:Key="FirellBrush" Color="{StaticResource FirellColor}"/>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush x:Key="SystemFillColorAttentionBackgroundBrush" Color="#DBECFF"/>
+            <SolidColorBrush x:Key="InfoBarInformationalSeverityBackgroundBrush" Color="#DBECFF"/>
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush x:Key="SystemFillColorAttentionBackgroundBrush" Color="#2B3A4F"/>
+            <SolidColorBrush x:Key="InfoBarInformationalSeverityBackgroundBrush" Color="#2B3A4F"/>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>
