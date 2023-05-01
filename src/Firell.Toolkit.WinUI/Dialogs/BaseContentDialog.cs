@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Firell.Toolkit.WinUI.Controls;
 using Firell.Toolkit.WinUI.Helpers;
 
-using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
@@ -74,6 +73,30 @@ public abstract class BaseContentDialog : ContentDialog
         set => SetValue(ContentBackgroundProperty, value);
     }
 
+    public new double MinWidth
+    {
+        get => (double)GetValue(MinWidthProperty);
+        set => SetValue(MinWidthProperty, value);
+    }
+
+    public new double MaxWidth
+    {
+        get => (double)GetValue(MaxWidthProperty);
+        set => SetValue(MaxWidthProperty, value);
+    }
+
+    public new double MinHeight
+    {
+        get => (double)GetValue(MinHeightProperty);
+        set => SetValue(MinHeightProperty, value);
+    }
+
+    public new double MaxHeight
+    {
+        get => (double)GetValue(MaxHeightProperty);
+        set => SetValue(MaxHeightProperty, value);
+    }
+
     private bool _isMoveable;
     public bool IsMoveable
     {
@@ -97,13 +120,13 @@ public abstract class BaseContentDialog : ContentDialog
         DependencyProperty.Register(nameof(Glyph), typeof(string), typeof(BaseContentDialog), new PropertyMetadata(string.Empty));
 
     public static readonly DependencyProperty GlyphForegroundProperty =
-        DependencyProperty.Register(nameof(GlyphForeground), typeof(Brush), typeof(BaseContentDialog), new PropertyMetadata(new SolidColorBrush(Colors.Black)));
+        DependencyProperty.Register(nameof(GlyphForeground), typeof(Brush), typeof(BaseContentDialog), new PropertyMetadata((Brush)Application.Current.Resources["TextFillColorPrimaryBrush"]));
 
     public static readonly DependencyProperty BackgroundGlyphProperty =
         DependencyProperty.Register(nameof(BackgroundGlyph), typeof(string), typeof(BaseContentDialog), new PropertyMetadata(string.Empty));
 
     public static readonly DependencyProperty GlyphBackgroundProperty =
-        DependencyProperty.Register(nameof(GlyphBackground), typeof(Brush), typeof(BaseContentDialog), new PropertyMetadata(new SolidColorBrush(Colors.White)));
+        DependencyProperty.Register(nameof(GlyphBackground), typeof(Brush), typeof(BaseContentDialog), new PropertyMetadata((Brush)Application.Current.Resources["TextFillColorSecondaryBrush"]));
 
     public new static readonly DependencyProperty TitleProperty =
         DependencyProperty.Register(nameof(Title), typeof(string), typeof(BaseContentDialog), new PropertyMetadata(string.Empty));
@@ -113,6 +136,18 @@ public abstract class BaseContentDialog : ContentDialog
 
     public static readonly DependencyProperty ContentBackgroundProperty =
         DependencyProperty.Register(nameof(ContentBackground), typeof(Brush), typeof(BaseContentDialog), new PropertyMetadata(null));
+
+    public new static readonly DependencyProperty MinWidthProperty =
+        DependencyProperty.Register(nameof(MinWidth), typeof(double), typeof(BaseContentDialog), new PropertyMetadata(0d));
+
+    public new static readonly DependencyProperty MaxWidthProperty =
+        DependencyProperty.Register(nameof(MaxWidth), typeof(double), typeof(BaseContentDialog), new PropertyMetadata(double.PositiveInfinity));
+
+    public new static readonly DependencyProperty MinHeightProperty =
+        DependencyProperty.Register(nameof(MinHeight), typeof(double), typeof(BaseContentDialog), new PropertyMetadata(0d));
+
+    public new static readonly DependencyProperty MaxHeightProperty =
+        DependencyProperty.Register(nameof(MaxHeight), typeof(double), typeof(BaseContentDialog), new PropertyMetadata(double.PositiveInfinity));
 
     protected override void OnApplyTemplate()
     {
@@ -137,6 +172,10 @@ public abstract class BaseContentDialog : ContentDialog
             Background = ContentBackground,
             Padding = new Thickness(24),
             Margin = new Thickness(-24),
+            MinWidth = MinWidth,
+            MaxWidth = MaxWidth,
+            MinHeight = MinHeight,
+            MaxHeight = MaxHeight,
         };
 
         dialogGrid.ColumnDefinitions.Add(new ColumnDefinition() {
@@ -181,7 +220,7 @@ public abstract class BaseContentDialog : ContentDialog
             TextBlock dialogSubTitle = new TextBlock() {
                 Text = Subtitle,
                 Style = (Style)Application.Current.Resources["CaptionTextBlockStyle"],
-                Foreground = new SolidColorBrush(Colors.DimGray),
+                Foreground = (Brush)Application.Current.Resources["TextFillColorSecondaryBrush"],
                 Visibility = string.IsNullOrWhiteSpace(Subtitle) ? Visibility.Collapsed : Visibility.Visible
             };
 

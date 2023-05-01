@@ -42,6 +42,11 @@ public sealed class Card : ContentControl
     public static readonly DependencyProperty IsShadowVisibleProperty =
         DependencyProperty.Register(nameof(IsShadowVisible), typeof(bool), typeof(Card), new PropertyMetadata(false, IsShadowVisible_PropertyChanged));
 
+    protected override void OnApplyTemplate()
+    {
+        ApplyShadowDepth();
+    }
+
     private static void ShadowDepth_PropertyChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
     {
         Card control = (Card)obj;
